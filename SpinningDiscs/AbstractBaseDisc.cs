@@ -7,16 +7,32 @@ namespace SpinningDiscs
     public abstract class AbstractBaseDisc
     {
         public abstract string MediaName { get; set;  }
-        public abstract int StorageCapacity { get; set; }
+        
         public abstract string MediaContents { get; set; }
-        public abstract string MediaDiscType { get; set; }
 
-        public AbstractBaseDisc(string name, int capacity, string contents, string discType)
+        public AbstractBaseDisc(string name, string contents)
         {
             MediaName = name;
-            StorageCapacity = capacity;
             MediaContents = contents;
-            MediaDiscType = discType;
+        }
+
+        public abstract string MediaDiscType { get; }
+
+        public abstract int StorageCapacity { get; }
+
+        public abstract int SpinRateMin { get; }
+
+        public abstract int SpinRateMax { get; }
+
+
+        public void PrintMediaInfo()
+        {
+            Console.WriteLine($"This media is called '{MediaName}'." +
+                $"\n{MediaName} holds {MediaContents} content." +
+                $"\n{MediaName} has a storage capacity of:  {StorageCapacity} MB" +
+                $"\n{MediaName}'s disc type is a {MediaDiscType}." +
+                $"\n{MediaName}'s spin rate ranges from {SpinRateMin} to {SpinRateMax} rpm" +
+                $"\n************************************");
         }
     }
 }
