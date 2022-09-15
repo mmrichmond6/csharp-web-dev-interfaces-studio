@@ -24,7 +24,6 @@ namespace SpinningDiscs
 
         public abstract int SpinRateMax { get; }
 
-
         public void PrintMediaInfo()
         {
             Console.WriteLine($"This media is called '{MediaName}'." +
